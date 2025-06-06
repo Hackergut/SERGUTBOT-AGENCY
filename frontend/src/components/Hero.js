@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { ArrowRight, Bot, MessageCircle, Zap } from 'lucide-react';
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -48,11 +51,11 @@ const Hero = () => {
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-              Automatizza il tuo
+              {t('hero.title1')}
             </span>
             <br />
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-              Business in 24h
+              {t('hero.title2')}
             </span>
           </h1>
           
@@ -62,8 +65,8 @@ const Hero = () => {
             transition={{ duration: 1, delay: 1 }}
             className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            Crea bot personalizzati per WhatsApp, Telegram e Instagram. 
-            <span className="text-yellow-400"> Risparmia tempo, vendi di più</span> e offri un servizio 24/7 anche mentre dormi.
+            {t('hero.subtitle')}
+            <span className="text-yellow-400"> {t('hero.subtitleHighlight')}</span> {t('hero.subtitleEnd')}
           </motion.p>
         </motion.div>
 
@@ -76,15 +79,15 @@ const Hero = () => {
         >
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-yellow-400">24h</div>
-            <div className="text-gray-400">Delivery</div>
+            <div className="text-gray-400">{t('hero.stats.delivery')}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-yellow-400">300%</div>
-            <div className="text-gray-400">Più Vendite</div>
+            <div className="text-gray-400">{t('hero.stats.sales')}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-yellow-400">24/7</div>
-            <div className="text-gray-400">Supporto Bot</div>
+            <div className="text-gray-400">{t('hero.stats.support')}</div>
           </div>
         </motion.div>
 
@@ -101,7 +104,7 @@ const Hero = () => {
             className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-8 py-4 rounded-full font-bold text-lg flex items-center space-x-2 shadow-2xl"
           >
             <MessageCircle className="w-5 h-5" />
-            <span>Consulenza Gratuita</span>
+            <span>{t('hero.cta.consultation')}</span>
             <ArrowRight className="w-5 h-5" />
           </motion.button>
           
@@ -111,7 +114,7 @@ const Hero = () => {
             className="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-full font-bold text-lg flex items-center space-x-2 hover:bg-yellow-400 hover:text-black transition-all duration-300"
           >
             <Bot className="w-5 h-5" />
-            <span>Prova Demo Bot</span>
+            <span>{t('hero.cta.demoBot')}</span>
           </motion.button>
         </motion.div>
 
@@ -126,19 +129,19 @@ const Hero = () => {
             <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-2 mx-auto">
               <MessageCircle className="w-6 h-6 text-white" />
             </div>
-            <span className="text-sm">WhatsApp</span>
+            <span className="text-sm">{t('hero.platforms.whatsapp')}</span>
           </div>
           <div className="text-center">
             <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mb-2 mx-auto">
               <MessageCircle className="w-6 h-6 text-white" />
             </div>
-            <span className="text-sm">Telegram</span>
+            <span className="text-sm">{t('hero.platforms.telegram')}</span>
           </div>
           <div className="text-center">
             <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-2 mx-auto">
               <Bot className="w-6 h-6 text-white" />
             </div>
-            <span className="text-sm">Instagram</span>
+            <span className="text-sm">{t('hero.platforms.instagram')}</span>
           </div>
         </motion.div>
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { 
   MessageCircle, 
   Bot, 
@@ -20,8 +21,10 @@ import Pricing from './Pricing';
 import Testimonials from './Testimonials';
 import FAQ from './FAQ';
 import Footer from './Footer';
+import LanguageSelector from './LanguageSelector';
 
 const LandingPage = () => {
+  const { t } = useTranslation();
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
@@ -43,18 +46,29 @@ const LandingPage = () => {
               SergutBot Agency
             </motion.div>
             <div className="hidden md:flex space-x-8">
-              <a href="#servizi" className="hover:text-yellow-400 transition-colors">Servizi</a>
-              <a href="#come-funziona" className="hover:text-yellow-400 transition-colors">Come Funziona</a>
-              <a href="#prezzi" className="hover:text-yellow-400 transition-colors">Prezzi</a>
-              <a href="#contatti" className="hover:text-yellow-400 transition-colors">Contatti</a>
+              <a href="#servizi" className="hover:text-yellow-400 transition-colors">
+                {t('nav.services')}
+              </a>
+              <a href="#come-funziona" className="hover:text-yellow-400 transition-colors">
+                {t('nav.howItWorks')}
+              </a>
+              <a href="#prezzi" className="hover:text-yellow-400 transition-colors">
+                {t('nav.pricing')}
+              </a>
+              <a href="#contatti" className="hover:text-yellow-400 transition-colors">
+                {t('nav.contacts')}
+              </a>
             </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-2 rounded-full font-semibold"
-            >
-              Consulenza Gratuita
-            </motion.button>
+            <div className="flex items-center space-x-4">
+              <LanguageSelector />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-2 rounded-full font-semibold"
+              >
+                {t('nav.freeConsultation')}
+              </motion.button>
+            </div>
           </div>
         </div>
       </motion.nav>

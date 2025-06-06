@@ -1,31 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { MessageCircle, Settings, Rocket } from 'lucide-react';
 
 const HowItWorks = () => {
+  const { t } = useTranslation();
+
   const steps = [
     {
       number: "01",
       icon: MessageCircle,
-      title: "Consulenza Strategica",
-      description: "Analizziamo il tuo business e definiamo insieme la strategia di automazione perfetta per i tuoi obiettivi.",
-      details: ["Analisi del target", "Definizione obiettivi", "Strategia personalizzata"],
+      title: t('howItWorks.step1.title'),
+      description: t('howItWorks.step1.description'),
+      details: t('howItWorks.step1.details', { returnObjects: true }),
       color: "from-blue-400 to-blue-600"
     },
     {
       number: "02", 
       icon: Settings,
-      title: "Sviluppo Bot",
-      description: "Creiamo il tuo bot personalizzato con AI avanzata, integrazioni payment e dashboard di controllo.",
-      details: ["Sviluppo su misura", "Test e ottimizzazione", "Integrazione pagamenti"],
+      title: t('howItWorks.step2.title'),
+      description: t('howItWorks.step2.description'),
+      details: t('howItWorks.step2.details', { returnObjects: true }),
       color: "from-purple-400 to-purple-600"
     },
     {
       number: "03",
       icon: Rocket,
-      title: "Launch & Supporto",
-      description: "Lanciamo il bot e ti accompagniamo con formazione, supporto continuo e aggiornamenti gratuiti.",
-      details: ["Deployment sicuro", "Formazione team", "Supporto 24/7"],
+      title: t('howItWorks.step3.title'),
+      description: t('howItWorks.step3.description'),
+      details: t('howItWorks.step3.details', { returnObjects: true }),
       color: "from-yellow-400 to-yellow-600"
     }
   ];
@@ -49,11 +52,11 @@ const HowItWorks = () => {
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-              Come Funziona
+              {t('howItWorks.title')}
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Dal primo contatto al lancio del tuo bot: un processo semplice e trasparente in soli 3 step
+            {t('howItWorks.subtitle')}
           </p>
         </motion.div>
 
@@ -135,17 +138,17 @@ const HowItWorks = () => {
         >
           <div className="bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 border border-yellow-400/30 rounded-2xl p-8 backdrop-blur-sm">
             <h3 className="text-3xl font-bold mb-4 text-white">
-              Pronto a Iniziare?
+              {t('howItWorks.cta.title')}
             </h3>
             <p className="text-gray-300 mb-6">
-              Prenota una consulenza gratuita e scopri come automatizzare il tuo business in 24h
+              {t('howItWorks.cta.subtitle')}
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-8 py-4 rounded-full font-bold text-lg shadow-2xl"
             >
-              Prenota Consulenza Gratuita
+              {t('howItWorks.cta.button')}
             </motion.button>
           </div>
         </motion.div>

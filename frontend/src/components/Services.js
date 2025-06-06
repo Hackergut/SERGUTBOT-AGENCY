@@ -1,50 +1,53 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { MessageCircle, Bot, Zap, CreditCard, BarChart3, Headphones } from 'lucide-react';
 
 const Services = () => {
+  const { t } = useTranslation();
+
   const services = [
     {
       icon: MessageCircle,
-      title: "Bot WhatsApp Business",
-      description: "Automazioni per prenotazioni, vendite e customer care. Gestisci centinaia di clienti simultaneamente.",
+      title: t('services.whatsapp.title'),
+      description: t('services.whatsapp.description'),
       image: "https://images.unsplash.com/photo-1625314868143-20e93ce3ff33",
-      features: ["Risposta automatica 24/7", "Catalogo prodotti integrato", "Pagamenti sicuri"]
+      features: t('services.whatsapp.features', { returnObjects: true })
     },
     {
       icon: Bot,
-      title: "Bot Telegram Premium",
-      description: "Accessi a contenuti riservati, sistemi di abbonamento e community private per creator.",
+      title: t('services.telegram.title'),
+      description: t('services.telegram.description'),
       image: "https://images.pexels.com/photos/30530419/pexels-photo-30530419.jpeg",
-      features: ["Gestione abbonamenti", "Contenuti esclusivi", "Analytics avanzate"]
+      features: t('services.telegram.features', { returnObjects: true })
     },
     {
       icon: Zap,
-      title: "Automazioni Instagram",
-      description: "Bot per DM automatici, lead generation e gestione commenti per far crescere il tuo brand.",
+      title: t('services.instagram.title'),
+      description: t('services.instagram.description'),
       image: "https://images.unsplash.com/photo-1606211105533-0439bfecce21",
-      features: ["DM automatici", "Lead generation", "Engagement boost"]
+      features: t('services.instagram.features', { returnObjects: true })
     },
     {
       icon: CreditCard,
-      title: "Pagamenti Integrati",
-      description: "Stripe, PayPal e crypto payments. Monetizza istantaneamente i tuoi contenuti e servizi.",
+      title: t('services.payments.title'),
+      description: t('services.payments.description'),
       image: "https://images.unsplash.com/photo-1627389955928-2f3a48686106",
-      features: ["Multi-gateway", "Crypto support", "Fatturazione automatica"]
+      features: t('services.payments.features', { returnObjects: true })
     },
     {
       icon: BarChart3,
-      title: "Dashboard Analytics",
-      description: "Monitora performance, conversioni e ROI. Ottimizza le tue strategie con dati in tempo reale.",
+      title: t('services.analytics.title'),
+      description: t('services.analytics.description'),
       image: "https://images.pexels.com/photos/7351136/pexels-photo-7351136.jpeg",
-      features: ["Metriche avanzate", "Report personalizzati", "Insights AI"]
+      features: t('services.analytics.features', { returnObjects: true })
     },
     {
       icon: Headphones,
-      title: "Supporto Dedicato",
-      description: "Team di sviluppatori italiani. Assistenza continua e aggiornamenti per il tuo bot personalizzato.",
+      title: t('services.support.title'),
+      description: t('services.support.description'),
       image: "https://images.unsplash.com/photo-1499540633125-484965b60031",
-      features: ["Supporto 24/7", "Team italiano", "Aggiornamenti gratuiti"]
+      features: t('services.support.features', { returnObjects: true })
     }
   ];
 
@@ -60,11 +63,11 @@ const Services = () => {
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-              I Nostri Servizi
+              {t('services.title')}
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Soluzioni complete per automatizzare il tuo business digitale e moltiplicare i tuoi guadagni
+            {t('services.subtitle')}
           </p>
         </motion.div>
 
@@ -132,7 +135,7 @@ const Services = () => {
                   whileTap={{ scale: 0.95 }}
                   className="mt-6 w-full bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 border border-yellow-400/30 text-yellow-400 py-3 rounded-xl font-semibold hover:from-yellow-400 hover:to-yellow-600 hover:text-black transition-all duration-300"
                 >
-                  Scopri di Più
+                  {t('services.cta')}
                 </motion.button>
               </div>
             </motion.div>
